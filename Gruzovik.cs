@@ -282,6 +282,7 @@ namespace Avtomobil3
                     kilometrdoraz = ido;
                     speed = 0;
                     //rasst = 0;
+                    rasst = ot;
                     Console.WriteLine("");
                     Console.ForegroundColor = ConsoleColor.Green;
                     Console.WriteLine("ВЫ ПРИБЫЛИ В ТОЧКУ ПОГРУЗКИ");
