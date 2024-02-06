@@ -394,6 +394,7 @@ namespace Avtomobil3
                     Console.WriteLine($"Остаток топлива: {Math.Round(top, 1)} литров.");
                     Console.WriteLine($"Пробег: {Math.Round(probeg)} километров.");
                     dist = 0;
+                    probeg = 0;
                 }
                 if (top < 2 && rasst < dist && rasst != 0)
                 {
