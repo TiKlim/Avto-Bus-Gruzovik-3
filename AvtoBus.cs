@@ -440,7 +440,7 @@ namespace Avtomobil3
                 }
                 if (rasst >= otsihdosih && otsihdosih != 0 && probeg < dist) //Для маршрута
                 {
-                    if (kilometrdoost >= otsihdosih && probeg < dist)
+                    if (kilometrdoost > otsihdosih && probeg < dist)
                     {
                         kilometrdoost -= otsihdosih;
                         //top2 -= topost;
