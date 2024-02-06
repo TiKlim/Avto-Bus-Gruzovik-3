@@ -345,7 +345,7 @@ namespace Avtomobil3
                 {
                     //topost = ((ido * ras) / 100);
                     //top -= topost;
-                    double a = kilometrdoraz - rasst;
+                    double a = (dist/2) - rasst;
                     topost = (a * ras) / 100;
                     top -= topost;
                     kilometrdoraz = dist / 2;

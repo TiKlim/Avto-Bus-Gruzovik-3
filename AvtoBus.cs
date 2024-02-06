@@ -326,6 +326,7 @@ namespace Avtomobil3
                     Console.WriteLine($"Остаток топлива: {Math.Round(top, 1)} литров.");
                     Console.WriteLine($"Пробег: {Math.Round(probeg)} километров.");
                     Console.WriteLine($"Пассажиры: {ludy}.");
+                    Found:
                     Console.WriteLine("Сколько людей вошло?");
                     Console.ForegroundColor = ConsoleColor.Cyan;
                     int prihod = Convert.ToInt32(Console.ReadLine());
@@ -335,7 +336,8 @@ namespace Avtomobil3
                         Console.ForegroundColor = ConsoleColor.Red;
                         Console.WriteLine("! МЕСТ НЕТ !");
                         Console.ForegroundColor = ConsoleColor.White;
-                        ludy += mesta;
+                        //ludy += mesta;
+                        goto Found;
 
                     }
                     else
@@ -349,16 +351,18 @@ namespace Avtomobil3
                         Console.ForegroundColor = ConsoleColor.White;
                         ludy += mesta;
                     }*/
+                    Round:
                     Console.WriteLine("Сколько людей вышло?");
                     Console.ForegroundColor = ConsoleColor.Cyan;
                     int uhod = Convert.ToInt32(Console.ReadLine());
                     Console.ForegroundColor = ConsoleColor.White;
-                    if (uhod > mesta || (ludy - prihod) < mesta)
+                    if (uhod > mesta || (ludy - uhod) < 0)
                     {
                         Console.ForegroundColor = ConsoleColor.Red;
                         Console.WriteLine("     ! МЁРТВЫХ ДУШ НЕ ВОЗИМ ! \nВ САЛОНЕ НЕТ ТАКОГО КОЛИЧЕСТВА ПАССАЖИРОВ");
                         Console.ForegroundColor = ConsoleColor.White;
-                        ludy -= mesta;
+                        //ludy -= mesta;
+                        goto Round;
                     }
                     else
                     {
@@ -454,6 +458,7 @@ namespace Avtomobil3
                         Console.WriteLine($"Остаток топлива: {Math.Round(top, 1)} литров.");
                         Console.WriteLine($"Пробег: {Math.Round(probeg)} километров.");
                         Console.WriteLine($"Пассажиры: {ludy}.");
+                        Gound:
                         Console.WriteLine("Сколько людей вошло?");
                         Console.ForegroundColor = ConsoleColor.Cyan;
                         int prihod = Convert.ToInt32(Console.ReadLine());
@@ -463,7 +468,8 @@ namespace Avtomobil3
                             Console.ForegroundColor = ConsoleColor.Red;
                             Console.WriteLine("! МЕСТ НЕТ !");
                             Console.ForegroundColor = ConsoleColor.White;
-                            ludy += mesta;
+                            //ludy += mesta;
+                            goto Gound;
                         }
                         else
                         {
@@ -476,16 +482,18 @@ namespace Avtomobil3
                             Console.ForegroundColor = ConsoleColor.White;
                             ludy += mesta;
                         }*/
+                        Pound:
                         Console.WriteLine("Сколько людей вышло?");
                         Console.ForegroundColor = ConsoleColor.Cyan;
                         int uhod = Convert.ToInt32(Console.ReadLine());
                         Console.ForegroundColor = ConsoleColor.White;
-                        if (uhod > mesta || (ludy - prihod) < mesta)
+                        if (uhod > mesta || (ludy - uhod) < 0)
                         {
                             Console.ForegroundColor = ConsoleColor.Red;
                             Console.WriteLine("     ! МЁРТВЫХ ДУШ НЕ ВОЗИМ ! \nВ САЛОНЕ НЕТ ТАКОГО КОЛИЧЕСТВА ПАССАЖИРОВ");
                             Console.ForegroundColor = ConsoleColor.White;
-                            ludy -= mesta;
+                            //ludy -= mesta;
+                            goto Pound;
                         }
                         else
                         {
