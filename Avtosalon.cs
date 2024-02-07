@@ -38,18 +38,25 @@ namespace Avtomobil3
                 }
                 else if (vybor1 == "2")
                 {
-                    foreach (Avto a in cars)
-                    {
+                    //foreach (Avto a in cars)
+                    //{
                         Console.WriteLine("Введите номер автомобиля: ");
                         Console.ForegroundColor = ConsoleColor.Cyan;
                         string? s = Console.ReadLine();
                         Console.ForegroundColor = ConsoleColor.White;
-                        if (s == a.Nom)
+                    var names = from g in Avto.cars
+                                where g.Nom == s
+                                select g;
+                    foreach (var name in names)
+                    {
+                        name.Menu2(Avto.cars);
+                    }
+                    /*if (s == a.Nom)
                         {
                             car = a;
                             car.Menu2(cars);
-                        }
-                    }
+                        }*/
+                    //}
                 }
             }
         }
