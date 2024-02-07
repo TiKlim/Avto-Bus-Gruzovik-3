@@ -17,6 +17,7 @@ namespace Avtomobil3
         protected double kilometrdoost;
         protected double kilom;
         protected int ludy;
+        protected double oprobeg; //Пробег общий
         //protected double top2;
         public string? Nom { get { return nom; } }
         public AvtoBus() { Menu(cars); }
@@ -421,14 +422,15 @@ namespace Avtomobil3
                     double b = (a * ras) / 100;
                     top -= b;*/
                     speed = 0;
-                    rasst = 0;                    
+                    rasst = 0;
+                    oprobeg += probeg;
                     Console.WriteLine("");
                     Console.ForegroundColor = ConsoleColor.Green;
                     Console.WriteLine("ДЕПО");
                     Console.ForegroundColor = ConsoleColor.White;
                     Console.WriteLine("");
                     Console.WriteLine($"Остаток топлива: {Math.Round(top, 1)} литров.");
-                    Console.WriteLine($"Пробег: {Math.Round(probeg)} километров.");
+                    Console.WriteLine($"Пробег: {Math.Round(oprobeg)} километров.");
                     dist = 0;
                     probeg = 0;
                 }
@@ -508,6 +510,7 @@ namespace Avtomobil3
                         probeg = dist;
                         speed = 0;
                         rasst = 0;
+                        oprobeg += probeg;
                         /*double a = rasst - probeg; 
                         double b = (a * ras) / 100; 
                         top -= b;*/
@@ -517,7 +520,7 @@ namespace Avtomobil3
                         Console.ForegroundColor = ConsoleColor.White;
                         Console.WriteLine("");
                         Console.WriteLine($"Остаток топлива: {Math.Round(top, 1)} литров.");
-                        Console.WriteLine($"Пробег: {Math.Round(probeg)} километров.");
+                        Console.WriteLine($"Пробег: {Math.Round(oprobeg)} километров.");
                         dist = 0;
                         probeg = 0;
                     }

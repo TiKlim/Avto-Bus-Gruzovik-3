@@ -18,6 +18,7 @@ namespace Avtomobil3
         protected int pogruz;
         protected int razgruz;
         protected int kuzov;
+        protected double oprobeg; //Пробег общий
         public string? Nom { get { return nom; } }
         public Gruzovik() { Menu(cars); }
         protected override void Info(List<Avto> cars)
@@ -290,6 +291,7 @@ namespace Avtomobil3
                     Console.WriteLine("");
                     Console.WriteLine($"Остаток топлива: {Math.Round(top, 1)} литров.");
                     Console.WriteLine($"Пробег: {Math.Round(probeg)} километров.");
+                    Much:
                     Console.WriteLine("Сколько грузить?");
                     Console.ForegroundColor = ConsoleColor.Cyan;
                     pogruz = Convert.ToInt32(Console.ReadLine());
@@ -303,10 +305,7 @@ namespace Avtomobil3
                         Console.ForegroundColor = ConsoleColor.Red;
                         Console.WriteLine("! НЕЛЬЗЯ ЗАГРУЗИТЬ В ГРУЗОВИК БОЛЬШЕ ЕГО ГРУЗОПОДЪЁМНОСТИ !");
                         Console.ForegroundColor = ConsoleColor.White;
-                        Console.WriteLine("Сколько грузить?");
-                        Console.ForegroundColor = ConsoleColor.Cyan;
-                        pogruz = Convert.ToInt32(Console.ReadLine());
-                        Console.ForegroundColor = ConsoleColor.White;
+                        goto Much;
                     }
                 }
                 kilometragh = Math.Round((top / ras) * 100); //На сколько километров хватит бензина
@@ -358,23 +357,21 @@ namespace Avtomobil3
                     Console.ForegroundColor = ConsoleColor.White;
                     Console.WriteLine("");
                     Console.WriteLine($"Остаток топлива: {Math.Round(top, 1)} литров.");
+                    Kuch:
                     Console.WriteLine("Сколько выгрузить?");
                     Console.ForegroundColor = ConsoleColor.Cyan;
-                    pogruz = Convert.ToInt32(Console.ReadLine());
+                    razgruz = Convert.ToInt32(Console.ReadLine());
                     Console.ForegroundColor = ConsoleColor.White;
-                    if (pogruz <= kuzov)
+                    if (razgruz <= kuzov)
                     {
                         kuzov -= razgruz;
                     }
-                    else if (pogruz > kuzov)
+                    else if (razgruz > kuzov)
                     {
                         Console.ForegroundColor = ConsoleColor.Red;
                         Console.WriteLine("! НЕЛЬЗЯ ВЫГРУЗИТЬ БОЛЬШЕ ЧЕМ ЗАГРУЖЕННО !");
                         Console.ForegroundColor = ConsoleColor.White;
-                        Console.WriteLine("Сколько выгрузить?");
-                        Console.ForegroundColor = ConsoleColor.Cyan;
-                        pogruz = Convert.ToInt32(Console.ReadLine());
-                        Console.ForegroundColor = ConsoleColor.White;
+                        goto Kuch;
                     }
                 }
                 if (rasst >= dist / 2 && probeg >= dist / 2 && kilometrdoraz == dist / 2) //Для маршрута
@@ -384,6 +381,7 @@ namespace Avtomobil3
                     top -= topost;
                     kilometrdoraz = 0;
                     probeg = dist;
+                    oprobeg += probeg;
                     speed = 0;
                     rasst = 0;
                     Console.WriteLine("");
@@ -392,7 +390,7 @@ namespace Avtomobil3
                     Console.ForegroundColor = ConsoleColor.White;
                     Console.WriteLine("");
                     Console.WriteLine($"Остаток топлива: {Math.Round(top, 1)} литров.");
-                    Console.WriteLine($"Пробег: {Math.Round(probeg)} километров.");
+                    Console.WriteLine($"Пробег: {Math.Round(oprobeg)} километров.");
                     dist = 0;
                     probeg = 0;
                 }
